@@ -80,8 +80,6 @@ with col1:
     st.write(""" """)
     st.write(""" """)
     st.markdown("**Fila butaca/ Momento de compra**")
-
-
     st.write("""Arriba""")
     st.write(""" """)
     st.write(""" """)
@@ -115,9 +113,6 @@ col5.write("Hrs antes")
 number_d1 = col5.number_input("",13,36,23)
 number_d2 = col5.number_input("",12,35,21)
 number_d3 = col5.number_input("",11,34,20)
-
-
-
 
 
 # resultados ----------------------------------------------------------------------------------------------------
@@ -229,9 +224,9 @@ st.write("Capacidad de la sala al ", str(cap_de1+cap_de2+cap_de3), " % ")
 st.markdown("""---""")
 
 #####################################################RESUMEN Y SUPUESTOS
-st.markdown("**Resumen: **")
+st.markdown("Resumen:")
 d_esp = st.number_input("Seleccione número de días especiales al año.",5,48,28)
-st.markdown("**Supuestos **")
+st.markdown("Supuestos:")
 col1, col2,col3,col4, col5,col6,col7 = st.columns([2,1,1,1,1,1,1])
 n_sal = col1.number_input("Número de salas.",1,10,5)
 n_fun = col1.number_input("Número de funciones.",1,6,3)
