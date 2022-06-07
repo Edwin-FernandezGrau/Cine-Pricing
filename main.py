@@ -13,7 +13,7 @@ st.set_page_config(page_title= "Cine OBK",layout="wide")
 
 import streamlit as st
 
-
+####################################################### VARIABLES
 st.markdown("## Variables a tomar en cuenta")
 with st.expander("Variables"):
     st.markdown("## Variables para definir precios y segmentación de demanda 🎯")
@@ -47,7 +47,7 @@ st.write("""
           """)
 
 st.markdown("""---""")
-st.markdown("##### Días Normales ")  #--------------------                                     PROPUESTA DIAS NORMALES
+st.markdown("##### Días Normales ")  #--##########################################  PROPUESTA DIAS NORMALES
      
 col6, col7 ,col1, col2,col3,col4, col5,col8 = st.columns(8)
 
@@ -174,7 +174,7 @@ st.write("Capacidad de la sala al ", str(cap_d1+cap_d2+cap_d3), " % ")
 st.markdown("""---""")
 
 
-st.markdown("##### Películas Especiales ")   # -------------------DIAS ESPECIALES
+st.markdown("##### Películas Especiales ")   ##########################DIAS ESPECIALES
 
 col6, col7 ,col1, col2,col3,col4, col5,col8 = st.columns(8)
 
@@ -223,7 +223,8 @@ col2.write(str(round(t_pe,2)))
 st.write("Capacidad de la sala al ", str(cap_de1+cap_de2+cap_de3), " % ")
 st.markdown("""---""")
 
-#####################################################RESUMEN Y SUPUESTOS
+##################################################### RESUMEN Y SUPUESTOS
+
 st.markdown("Resumen:")
 d_esp = st.number_input("Seleccione número de días especiales al año.",5,48,28)
 st.markdown("Supuestos:")
@@ -236,15 +237,18 @@ resultado = (d_esp*(cap_de1 + cap_de2 + cap_de3)*t_pe + (365-d_esp)*(cap_d1+cap_
    #col1.write("Resultado : " + str(round(resultado,2)))
 df = pd.DataFrame()
 df['Ingreso Anual'] = [round(resultado,2)]
-
 st.dataframe(df)
+
+
 ######################################################## COMPARATIVO
+
+
+
 st.markdown("""---""")
 st.markdown("## Comparativo")
+
 with st.expander("Enfoque actual vs Revenue Management"):
     col1, col2,col3,col4, col5,col6,col7 = st.columns([2,1,1,1,1,1,1])
-    
-    
     c_act= col1.number_input("Clientes año",350000,500000,400000)
     t_act= col1.number_input("Ticket prom anterior",0,39,20)
   
@@ -261,7 +265,7 @@ with st.expander("Enfoque actual vs Revenue Management"):
     st.write(""" """)
     st.dataframe(dc)
 
-   
+   ######################################################## CCASO ELASTICIDAD
 st.markdown("""---""")
 st.markdown("## Elasticidad Precio Demanda")
 with st.expander("El caso de los martes"):
@@ -278,5 +282,6 @@ with st.expander("El caso de los martes"):
     var_p = var_q/elasticidad
     st.write("El precio debe reducirse en " + str(round(var_p*100,2)) + " % ")
 
-
+st.sidebar.info('La cadena de cines OBK se encuentra atravesando una situación financiera complicada: sus costos están siendo cada año mayores y esta variación no va acompañada de un crecimiento de los ingresos...')
+st.sidebar.info('Entregable desarrollado por Ed Fernández')
 
